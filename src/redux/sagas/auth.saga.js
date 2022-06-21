@@ -1,7 +1,7 @@
 import Moralis from 'moralis';
-import { takeEvery, put, call, delay, select } from 'redux-saga/effects';
+import { takeEvery, put, call, delay } from 'redux-saga/effects';
 import { routes, userConstants } from '../../constants';
-import { signUp, logIn, forgot, SignOut, walletAddress, googleAuthenticatorFlag, googleAuthenticatorsecret, googleAuthenticatorQRcode, googleAuthenticatorverify } from '../actions';
+import { signUp, logIn, forgot, SignOut, walletAddress } from '../actions';
 import { toast } from "react-toastify";
 import { history } from '../../helper';
 import { purgeStoredState } from 'redux-persist';
@@ -27,12 +27,10 @@ export function* loginSaga(action) {
 export function* signupSaga(action) {
     const { payload } = action;
     try {
-        console.log("call sign up");
         yield delay(1000)
         const data = yield call(signUp, payload);
         yield put({ type: userConstants.TOAST_SHOW_SUCCESS, text: 'Sign up succesfull.' });
         yield put({ type: userConstants.SIGNUP_SUCCESS, payload: data });
-        yield put({ type: userConstants.GOOGLE_AUTH_DEFAULT_FLAG, payload: false });
         history.replace('/login')
     } catch (error) {
         console.log("error==>", error);
@@ -69,10 +67,10 @@ export function* signOutSaga() {
     }
 }
 
+
 export function* storeWalletAddress(action) {
     const { payload } = action;
     try {
-        console.log("pay==>", payload);
         yield call(walletAddress, payload);
         yield put({ type: userConstants.STORE_WALLET_ADDRESS_SUCCESS });
     } catch (error) {

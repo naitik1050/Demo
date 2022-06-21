@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Moralis from 'moralis';
 
 
-const Navbar = ({ TwoFactorAuentication }) => {
+const Navbar = () => {
   const [myPublicAddress, setMyPublicAddress] = useState('qhut0...hfteh45')
   const [ethBalance, setEthBalance] = useState(null)
   const [otherBalance, setOtherBalance] = useState({})
@@ -20,7 +20,6 @@ const Navbar = ({ TwoFactorAuentication }) => {
 
   const { profile_image, user_data } = useSelector(state => state?.user_data)
   const { lightmode } = useSelector(state => state?.change_mode)
-  const emailID = user_data.email?.split('@')[0].substring(0, 3) + '**@' + '**.' + user_data.email?.split('@')[1]?.split('.')[1];
 
   const ethereum = window.ethereum
   if (ethereum) {
@@ -89,13 +88,13 @@ const Navbar = ({ TwoFactorAuentication }) => {
 
     const balances = await Web3Api.account.getTokenBalances(options);
     const txList = await Web3Api.account.getTransactions(options);
+    console.log("txt status==>", txList);
+
     const filter_balance = balances.filter((item) => item.symbol == 'LQDA')
     const formatted_balance = {
       inWei: filter_balance[0].balance,
       formatted: Moralis.Units.FromWei(filter_balance[0].balance, filter_balance[0].decimals),
     };
-    const payload = { wallet_address: address, lqda_token: formatted_balance?.formatted }
-    dispatch({ type: userConstants.STORE_WALLET_ADDRESS_REQUEST, payload });
     setOtherBalance({ symbol: filter_balance[0]?.symbol, balance: formatted_balance?.formatted })
   };
 
@@ -116,6 +115,7 @@ const Navbar = ({ TwoFactorAuentication }) => {
         setMyPublicAddress(walletAddress)
         setEthBalance(eth)
         fetchTokenBalances(accounts[0])
+        dispatch({ type: userConstants.STORE_WALLET_ADDRESS_REQUEST, payload: accounts[0] });
       }
     }
   }, [isMetaMaskInstalled])
@@ -126,6 +126,7 @@ const Navbar = ({ TwoFactorAuentication }) => {
 
   const _handleConnectWallet = useCallback(async () => {
     const modal = document.getElementById('modal-metamask')
+
     if (!isMetaMaskInstalled()) {
       //meta mask not installed
       modal.classList.add('show')
@@ -148,6 +149,7 @@ const Navbar = ({ TwoFactorAuentication }) => {
       setMyPublicAddress(walletAddress)
       setEthBalance(eth)
       fetchTokenBalances(accounts[0])
+      dispatch({ type: userConstants.STORE_WALLET_ADDRESS_REQUEST, payload: accounts[0] });
       navigate('/')
     } catch (error) {
       console.error(error)
@@ -228,7 +230,6 @@ const Navbar = ({ TwoFactorAuentication }) => {
       isOpen.style.display = "block";
     }
   };
-
   return (
     <>
       {/* Navbar STart */}
@@ -415,7 +416,7 @@ const Navbar = ({ TwoFactorAuentication }) => {
                 </button>
                 <div
                   className="dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 pb-3 pt-0 overflow-hidden rounded"
-                  style={{ minWidth: 300 }}
+                  style={{ minWidth: 200 }}
                 >
                   <div className="position-relative">
                     <div className="pt-5 pb-3 bg-gradient-primary"></div>
@@ -426,14 +427,9 @@ const Navbar = ({ TwoFactorAuentication }) => {
                           className="rounded-pill avatar avatar-md-sm img-thumbnail shadow-md"
                           alt=""
                         />
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <h6 className="text-dark fw-bold mb-0 ms-1">
-                            {emailID}
-                          </h6>
-                          <label style={{ backgroundColor: '#fff6e9', fontSize: '0.8rem', color: '#e0bb86', marginLeft: '10px', fontWeight: 'bold', paddingInline: '10px' }}>
-                            Unverified
-                          </label>
-                        </div>
+                        <h6 className="text-dark fw-bold mb-0 ms-1">
+                          {user_data?.username}
+                        </h6>
                       </div>
                       <div className="mt-2">
                         <small className="text-start text-dark d-block fw-bold">
@@ -482,48 +478,6 @@ const Navbar = ({ TwoFactorAuentication }) => {
                         <i className="uil uil-user align-middle h6 mb-0 me-1"></i>
                       </span>{' '}
                       Profile
-                    </a>
-                    {user_data?.googleAuthApp ?
-                      <a
-                        className="dropdown-item small fw-semibold text-dark d-flex align-items-center" >
-                        <span className="mb-0 d-inline-block me-1">
-                          <i className="uil uil-lock align-middle h6 mb-0 me-1"></i>
-                        </span>{' '}
-                        <div className="d-flex justify-content-between align-items-center" style={{ width: '100%' }}>
-                          <span className="text-primary fw-bold">
-                            Disabled for 2FA
-                          </span>
-                          <a href="" onClick={e => e.preventDefault()} className="text-primary">
-                            <i className="uil uil-check-circle"></i>
-                          </a>
-                        </div>
-                      </a>
-                      :
-                      <a
-                        className="dropdown-item small fw-semibold text-dark d-flex align-items-center"
-                        href="/creator-profile"
-                        onClick={e => {
-                          e.preventDefault()
-                          TwoFactorAuentication()
-                        }}
-                      >
-                        <span className="mb-0 d-inline-block me-1">
-                          <i className="uil uil-lock align-middle h6 mb-0 me-1"></i>
-                        </span>{' '}
-                        Enabled for 2FA
-                      </a>}
-
-                    <a
-                      className="dropdown-item small fw-semibold text-dark d-flex align-items-center"
-                      href="/creator-profile"
-                      onClick={e => {
-                        e.preventDefault()
-                      }}
-                    >
-                      <span className="mb-0 d-inline-block me-1">
-                        <i class="bi bi-fingerprint"></i>
-                      </span>{' '}
-                      KYC Verification
                     </a>
                     <a
                       className="dropdown-item small fw-semibold text-dark d-flex align-items-center"

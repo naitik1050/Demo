@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FiMail } from 'react-icons/fi'
 import BackToTop from '../BackToTop'
-import { MetaMask_Fox, playStore, app, iconLogo } from '../imageImport'
+import { MetaMask_Fox, playStore, app, iconLogo, logoDark, whiteLogo, lightLogo } from '../imageImport'
 
 const Footer = () => {
   const navigate = useNavigate()
@@ -18,7 +18,7 @@ const Footer = () => {
                 <div className="row">
                   <div className="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
                     <a href="#" className="logo-footer">
-                      <img src={iconLogo} alt="" />
+                      <img src={lightLogo} width={220} height={46} alt="" />
                     </a>
                     <p className="para-desc mb-0 mt-4">
                     We are a cryptocurrency real estate company based in Texas that offers fractional acreage investments and ownership through the power of Non-fungible Tokens.

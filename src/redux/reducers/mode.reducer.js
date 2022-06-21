@@ -1,7 +1,7 @@
 import { userConstants } from "../../constants/index";
 
 const initialState = {
-    lightmode: true,
+    lightmode: false,
 };
 
 export const change_mode = (state = initialState, action) => {
