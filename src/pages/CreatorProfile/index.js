@@ -4,7 +4,6 @@ import { FiCamera } from 'react-icons/fi'
 import Countdown from 'react-countdown'
 import Footer from '../../components/Footer'
 import Navbar from '../../components/Navbar'
-import './index.css';
 // import StyleSwitcher from '../../components/StyleSwitcher'
 import {
   client01, client02, client03, client04, client05, client06, client08,
@@ -27,49 +26,49 @@ const CreateProfile = () => {
   const createdData = [
     {
       image: gif1,
-      title: 'Deep Sea Phantasy',
+      title: '50 Acres (Platinum) - Tom Green',
       type: 'GIFs',
       id: 'May 29, 2022 6:0:0'
     },
     {
       image: item1,
-      title: 'CyberPrimal 042 LAN',
+      title: '45 Acres - Midland, Texas',
       type: 'Arts',
       id: ''
     },
     {
       image: gif2,
-      title: 'Crypto Egg Stamp #5',
+      title: '250 Acres - Near Odessa, TX',
       type: 'Games',
       id: ''
     },
     {
       image: item2,
-      title: 'Colorful Abstract Painting',
+      title: '56 Acres - Waco, TX',
       type: '',
       id: 'June 03, 2022 5:3:1'
     },
     {
       image: item3,
-      title: 'Liquid Forest Princess',
+      title: '56 Acres - Waco, TX',
       type: '',
       id: ''
     },
     {
       image: gif3,
-      title: 'Spider Eyes Modern Art',
+      title: '56 Acres - Waco, TX',
       type: 'GIFs',
       id: 'June 10, 2022 1:0:1'
     },
     {
       image: item4,
-      title: 'Synthwave Painting',
+      title: '56 Acres - Waco, TX',
       type: '',
       id: ''
     },
     {
       image: gif4,
-      title: 'Contemporary Abstract',
+      title: '56 Acres - Waco, TX',
       type: 'GIFs',
       id: ''
     },
@@ -77,19 +76,19 @@ const CreateProfile = () => {
   const onSaleData = [
     {
       image: gif1,
-      title: 'Deep Sea Phantasy',
+      title: '56 Acres - Waco, TX',
       type: 'GIFs',
       id: 'May 29, 2022 6:0:0'
     },
     {
       image: item1,
-      title: 'CyberPrimal 042 LAN',
+      title: '45 Acres - Midland, Texas',
       type: 'Arts',
       id: ''
     },
     {
       image: gif2,
-      title: 'Crypto Egg Stamp #5',
+      title: '45 Acres - Midland, Texas',
       type: 'Games',
       id: ''
     },
@@ -97,37 +96,37 @@ const CreateProfile = () => {
 
   const followerData = [
     {
-      name: 'CutieGirl',
+      name: 'AcreSeller',
       location: 'Brookfield, WI',
       image: client02,
       subMenu: [item1, item2, item3, item4, item5, gif4],
     },
     {
-      name: 'FunnyGuy',
+      name: 'AcreSeller',
       location: 'Brookfield, WI',
       image: client13,
       subMenu: [item3, gif1, item9, item6, item1, gif2],
     },
     {
-      name: 'NorseQueen',
+      name: 'AcreSeller',
       location: 'Brookfield, WI',
       image: client03,
       subMenu: [gif5, item2, gif6, item4, item5],
     },
     {
-      name: 'BigBull',
+      name: 'AcreSeller',
       location: 'Brookfield, WI',
       image: client04,
       subMenu: [item7, item8, item9, item10],
     },
     {
-      name: 'KristyHoney',
+      name: 'AcreSeller',
       location: 'Brookfield, WI',
       image: client10,
       subMenu: [item1, item2, item3, item4, item5, item6],
     },
     {
-      name: 'Princess',
+      name: 'AcreSeller',
       location: 'Brookfield, WI',
       image: client12,
       subMenu: [item5, item8, item4, item7, item5, item10],
@@ -136,70 +135,70 @@ const CreateProfile = () => {
 
   const activityData = [
     {
-      title: 'Digital Art Collection',
+      title: 'AcreSeller',
       author: 'Panda',
       time: '1 hours ago',
       favorite: 'Started Following',
       image: item1,
     },
     {
-      title: 'Skrrt Cobain Official',
+      title: 'AcreSeller',
       author: 'ButterFly',
       time: '2 hours ago',
       favorite: 'Liked by',
       image: gif1,
     },
     {
-      title: 'Wow! That Brain Is Floating',
+      title: 'AcreSeller',
       author: 'ButterFly',
       time: '2 hours ago',
       favorite: 'Liked by',
       image: item2,
     },
     {
-      title: 'Our Journey Start',
+      title: '96 Acres - Keller, TX',
       author: 'CalvinCarlo',
       time: '5 hours ago',
       favorite: 'Listed by',
       image: item3,
     },
     {
-      title: 'BitBears',
+      title: '96 Acres - Keller, TX',
       author: 'ButterFly',
       time: '8 hours ago',
       favorite: 'Liked by',
       image: gif2,
     },
     {
-      title: 'Little Kokeshi #13',
+      title: '96 Acres - Keller, TX',
       author: 'ButterFly',
       time: '10 hours ago',
       favorite: 'Liked by',
       image: item4,
     },
     {
-      title: 'EVOL Floater',
+      title: '96 Acres - Keller, TX',
       author: 'CutieGirl',
       time: '13 hours ago',
       favorite: 'Started Following',
       image: gif3,
     },
     {
-      title: 'Smart Ape Club (SAC) - Limited Edition',
+      title: '96 Acres - Keller, TX',
       author: 'CalvinCarlo',
       time: '18 hours ago',
       favorite: 'Listed by',
       image: gif4,
     },
     {
-      title: 'THE SECRET SOCIETY XX #775',
+      title: '96 Acres - Keller, TX',
       author: 'CalvinCarlo',
       time: '23 hours ago',
       favorite: 'Listed by',
       image: gif5,
     },
     {
-      title: 'Create Your Own World',
+      title: '96 Acres - Keller, TX',
       author: 'ButterFly',
       time: '24 hours ago',
       favorite: 'Liked by',
@@ -714,71 +713,8 @@ const CreateProfile = () => {
                   role="tabpanel"
                   aria-labelledby="Followers-tab"
                 >
-
-                  {/* <div > */}
-                  <div className='cardView'>
-                    <i class="ei bi-envelope-fill"></i>
-                    <div class="card-body">
-                      <div className='text-horizontal'>
-                        <h5 class="card-title">Email</h5>
-                        <a href="" onClick={e => e.preventDefault()} className="text-primary card-icon">
-                          <i className="uil uil-check-circle"></i>
-                        </a>
-                      </div>
-                      <p class="card-text">Used for verification in withdrawal, API Creation, and other functions.</p>
-                    </div>
-                  </div>
-
-                  <div className='cardView'>
-                    <i class="ei bi-shield-lock-fill"></i>
-                    <div class="card-body">
-                      <h5 class="card-title">Trading Password</h5>
-                      <p class="card-text">Used for verification in transaction, withdrawal, API creation, and other functions. Make sure the password is adequately strong and keep it secure.</p>
-                    </div>
-                    <div style={{ alignSelf: 'center' }}>
-                      <a href="#" class="btn btn-primary">Change</a>
-                    </div>
-                  </div>
-
-                  <div className='cardView'>
-                    {/* <i class="ei bi-envelope-fill"></i> */}
-                    <h4 className='ipWrap'>IP</h4>
-                    <div class="card-body">
-                      <div className='text-horizontal'>
-                        <h5 class="card-title">Restrict Login IP</h5>
-                        <p class="text-primary card-textlabel">Recommended when balance > 0.1 BTC</p>
-                      </div>
-                      <p class="card-text">When enabled, you will be logged out automatically whenever your login IP changes.</p>
-                    </div>
-
-                    <div style={{ alignSelf: 'center' }}>
-                      <label class="switch">
-                        <input type="checkbox" className='tews' />
-                        <span class="slider round"></span>
-                      </label>
-                    </div>
-
-                  </div>
-
-                  <div className='cardView'>
-                    <i class="ei bi-person-dash-fill"></i>
-                    <div class="card-body">
-                      <h5 class="card-title">Freeze Account</h5>
-                      <p class="card-text">When this feature is enabled, all trades and withdrawals will be prohibited. You may apply to unfreeze your account the next time you log in.</p>
-                    </div>
-                  </div>
-
-                  <div className='cardView'>
-                    <i class="ei bi-person-x-fill"></i>
-                    <div class="card-body">
-                      <h5 class="card-title">Delete Account</h5>
-                      <p class="card-text">Warning: Once you delete your account, it cannot be recovered and you will be unable to use any of its associated services.</p>
-                    </div>
-                  </div>
-                  {/* </div> */}
-
-                  {/* <h5 className="mb-4">{followerData?.length} Followers</h5> */}
-                  {/* <div className="row g-4">
+                  <h5 className="mb-4">{followerData?.length} Followers</h5>
+                  <div className="row g-4">
                     {followerData?.map(data => {
                       return (
                         <div className="col-md-6" key={data?.name}>
@@ -842,11 +778,12 @@ const CreateProfile = () => {
                                 </div>
                               ))}
                             </div>
+                            {/*end row */}
                           </div>
                         </div>
                       )
                     })}
-                  </div> */}
+                  </div>
                 </div>
                 {/* if value select activity */}
                 <div

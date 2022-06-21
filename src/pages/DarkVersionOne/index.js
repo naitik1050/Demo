@@ -16,21 +16,17 @@ import {
   work1, work2, work3, work4, work5, work6, work7, work8, work9, work10, work11, work12,
 } from '../../components/imageImport'
 import ProductSlider from '../../components/ProductSlider'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { userConstants } from '../../constants'
-import ModalDialog from '../../components/ModalDialog'
 
 const DarkVersionOne = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { modal } = useSelector(state => state?.twofactor)
-
-  // const [modalFlag, setmodalFlag] = useState(false)
-  const [otp, setotp] = useState('');
 
   useEffect(() => {
     dispatch({ type: userConstants.FETCH_USER_DATA_REQUEST });
   }, [])
+
 
   useEffect(() => {
     if (document.getElementsByClassName('tiny-five-item-nav-arrow').length > 0) {
@@ -424,7 +420,7 @@ const DarkVersionOne = () => {
       } else if (location?.pathname === '/index-rtl') {
         document.getElementById('theme-opt').href = './css/style-rtl.min.css'
       } else {
-        document.getElementById('theme-opt').href = './css/style.min.css'
+        document.getElementById('theme-opt').href = './css/style-dark.min.css'
       }
       toggleSwitcher(false)
       activateMenu()
@@ -432,31 +428,18 @@ const DarkVersionOne = () => {
     typewrite()
   }, [location?.pathname])
 
+
+
   const setFilter = type => {
     setType(type)
     const newOne = AuctionData?.filter(data => data?.filter?.includes(type))
     setAllData(newOne)
   }
-
-  const TwoFactorAuentication = () => {
-    dispatch({ type: userConstants.TWO_FACTOR_MODAL_OPEN_REQUEST });
-  }
-
-  const verifyNow = (otp) => {
-    dispatch({ type: userConstants.GOOGLE_AUTHENTICATOR_VERIFY_REQUEST, otp });
-  }
-
   return (
     <>
       {/* Navbar */}
-      <Navbar TwoFactorAuentication={() => TwoFactorAuentication()} />
-      <ModalDialog
-        show={modal}
-        handleClose={() => dispatch({ type: userConstants.TWO_FACTOR_MODAL_CLOSE_REQUEST })}
-        otp={otp}
-        onChangeOTP={(e) => setotp(e.target.value)}
-        verifyNow={(text) => verifyNow(text)}
-      />
+      <Navbar />
+
       {/* Start Home */}
       <section
         className="bg-half-260 d-flex align-items-center bg-dark"
@@ -466,7 +449,7 @@ const DarkVersionOne = () => {
           backgroundSize: "cover"
         }}
       >
-
+        
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-7 col-md-6">
@@ -500,7 +483,7 @@ const DarkVersionOne = () => {
                 </div>
               </div>
             </div>
-
+      
             {/*end slide*/}
 
             <div className="col-lg-5 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
@@ -550,7 +533,6 @@ const DarkVersionOne = () => {
                       />
                     </a>
                   </div>
-
                   <span className="like-icon shadow-sm">
                     <a
                       href=""
@@ -639,11 +621,11 @@ const DarkVersionOne = () => {
       <br></br>
       <br></br>
       <div className="section-title text-center mb-4 pb-2">
-        <h4 className="title mb-4">Discover Newly Posted Land</h4>
-        <p className="text-muted para-desc mb-0 mx-auto">
-          Here you will find all types of live listings of REAL land.
-        </p>
-      </div>
+                <h4 className="title mb-4">Discover Newly Posted Land</h4>
+                <p className="text-muted para-desc mb-0 mx-auto">
+                  Here you will find all types of live listings of REAL land.
+                </p>
+              </div>
       <ProductSlider />
 
       <section className="section">
@@ -691,8 +673,8 @@ const DarkVersionOne = () => {
                   >
                     <i className="uil uil-chart-pie-alt"></i> Platinum
                   </li>
-
-
+                
+                
                 </ul>
               </div>
             </div>

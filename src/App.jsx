@@ -7,7 +7,7 @@ import { userConstants } from './constants'
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: userConstants.APPLY_MODE_SUCCESS, payload: true })
+    dispatch({ type: userConstants.APPLY_MODE_SUCCESS, payload: false })
     // document.getElementById('theme-opt').href = './css/style.min.css'
   }, [])
 

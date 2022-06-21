@@ -101,7 +101,7 @@ const UploadWork = () => {
             <CardView
               label='TIER 2'
               type='Corridor'
-              typeColor='#da8c80'
+              typeColor='#969696'
               tokenBalance='20,000'
               feesLabel='Earn 1% on trading fees'
               work={work2}
@@ -123,7 +123,7 @@ const UploadWork = () => {
             <CardView
               label='TIER 3'
               type='Providence'
-              typeColor='#fc6271'
+              typeColor='#d3a33d'
               tokenBalance='100,000'
               feesExtraLabel='1 free NFT airdrop per year'
               feesLabel='Earn 1% on trading fees'
